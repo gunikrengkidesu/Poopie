@@ -30,7 +30,7 @@ public class Kitchen extends Room {
     };
 
     public Kitchen() {
-        super(2, "Kitchen Room", "stoveH", 2, 5,
+        super(2, "Kitchen", "stoveH", 2, 5,
               new String[] {"jar", "bottle", "burgerPlate"}, new Color(196, 229, 220), new Color(160, 204, 196));
     }
 

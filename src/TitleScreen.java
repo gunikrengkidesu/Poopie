@@ -36,26 +36,11 @@ public class TitleScreen extends MenuScreen {
     public void draw(Graphics2D g) {
         HomeScene.draw(g, ticks);
 
-        // title, top left
+        // title, left, in the space above the menu
         g.setFont(UI.font(Font.BOLD, 72));
-        leftShadowText(g, "POOPIE", 120, new Color(255, 200, 80), new Color(80, 40, 20));
+        leftShadowText(g, "POOPIE", 260, new Color(255, 200, 80), new Color(80, 40, 20));
         g.setFont(UI.font(Font.BOLD, 24));
-        leftShadowText(g, "TISSUE RUSH", 166, Color.WHITE, new Color(60, 30, 20));
-
-        // how to play, under the title
-        g.setFont(UI.smallFont(16));
-        String[] lines = {"Grab every tissue roll in the room",
-                          "before the clock runs out.",
-                          "The door only opens when you have them all!",
-                          "Dodge falling objects, don't slip on",
-                          "wet floors, and punch snakes with X."};
-        for (int i = 0; i < lines.length; i++) {
-            int y = 212 + i * 24;
-            g.setColor(new Color(42, 26, 58));
-            UI.drawString(g, lines[i], LEFT + 2, y + 2);
-            g.setColor(new Color(255, 250, 240));
-            UI.drawString(g, lines[i], LEFT, y);
-        }
+        leftShadowText(g, "TISSUE RUSH", 306, Color.WHITE, new Color(60, 30, 20));
 
         // menu, bottom left
         int top = GameConfig.HEIGHT - 72 - (buttons.size() * (BUTTON_H + BUTTON_GAP) - BUTTON_GAP);

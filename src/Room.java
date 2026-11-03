@@ -17,7 +17,7 @@ import java.util.List;
  *   /  slope rising right     \  slope rising left
  *   {  wet slope rising right    }  wet slope rising left
  *   F  shelf that drops things   P  player start   D  bathroom door
- *   H  ladder                    S  snake (only in rooms with 3 stars or more)
+ *   H  ladder                    S  snake 
  * Tissue rolls are not in the layout: they are placed at random each time the level starts.
  */
 public abstract class Room {
@@ -79,17 +79,6 @@ public abstract class Room {
         return furniture;
     }
 
-    /** Covers the wall with a repeating texture cut from a tile sheet, then softly tints it with the room colours. */
-    protected void wallpaper(Graphics2D g, String sheet, int sx, int sy, int size, int width, int height) {
-        BufferedImage tex = Assets.crop(sheet, sx, sy, size, size);
-        if (tex != null) {
-            g.setPaint(new TexturePaint(tex, new Rectangle2D.Double(0, 0, size, size)));
-            g.fillRect(0, 0, width, height);
-        }
-        g.setPaint(new GradientPaint(0, 0, withAlpha(wallTop, 70), 0, height, withAlpha(wallBottom, 110)));
-        g.fillRect(0, 0, width, height);
-    }
-
     private static final String WALL_SHEET = "res/Bg/tilemap.png";
     private static final int WALL_SCALE = 2;
 
@@ -136,10 +125,6 @@ public abstract class Room {
         if (tex == null) return;
         g.setPaint(new TexturePaint(tex, new Rectangle2D.Double(0, 0, tex.getWidth() * scale, tex.getHeight() * scale)));
         g.fillRect(0, 0, width, height);
-    }
-
-    private static Color withAlpha(Color c, int alpha) {
-        return new Color(c.getRed(), c.getGreen(), c.getBlue(), alpha);
     }
 
     /** Texture for platforms in this room, or null for the default pink bricks. */

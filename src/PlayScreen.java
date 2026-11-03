@@ -105,8 +105,10 @@ public class PlayScreen extends Screen {
         g.setFont(UI.font(Font.BOLD, 12));
         UI.drawString(g, "x " + level.getCollected() + " / " + level.getRequired(), w - 104, 23);
 
-        if (done && level.getStatus() == Level.Status.PLAYING)
-            UI.banner(g, "ALL ROLLS COLLECTED! GO TO THE BATHROOM!", GameConfig.HEIGHT - 50, new Color(40, 140, 70, 220));
+        if (done && level.getStatus() == Level.Status.PLAYING) {
+            String where = levelNumber == GameConfig.LEVEL_COUNT ? "THE TOILET" : "THE NEXT ROOM";
+            UI.banner(g, "ALL ROLLS COLLECTED! GO TO " + where + "!", GameConfig.HEIGHT - 50, new Color(40, 140, 70, 220));
+        }
         g.setFont(UI.font(Font.PLAIN, 8));
         g.setColor(new Color(255, 255, 255, 160));
         g.setFont(UI.smallFont(13));

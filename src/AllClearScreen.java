@@ -22,7 +22,7 @@ public class AllClearScreen extends OverlayScreen {
         g.setFont(UI.font(Font.BOLD, 12));
         g.setColor(new Color(110, 70, 50));
         UI.drawCentered(g, "EVERY ROOM IN THE HOUSE IS STOCKED!", cx, top + 100);
-        UI.drawCentered(g, "NOW YOU CAN USE THE BATHROOM IN PEACE :)", cx, top + 124);
+        UI.drawCentered(g, "NOW YOU CAN USE THE TOILET IN PEACE :)", cx, top + 124);
         BufferedImage roll = Assets.image("res/Obj/toilet_paper.png");
         for (int i = 0; roll != null && i < 5; i++) {
             int y = top + 140 + (int) (Math.sin((ticks + i * 12) / 8.0) * 5);
